@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title></title>
+        <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+        <script type="text/javascript" src="../layui/layui.js"></script>
+    </head>
+<body>
+<div class="layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>房产相关信息</legend>
+    </fieldset>
+
+<div style="width: 650px; position: relative; left:25%;">
+
+    <form action="" method="post" class="layui-form" accept-charset="utf-8">
+        <div class="layui-form-item">
+            <label class="layui-form-label">地址</label>
+            <div class="layui-input-block">
+                <input lay-verify="required" type="text" name="address" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">楼层</label>
+            <div class="layui-input-block">
+                <input lay-verify="required|number" type="text" name="floor" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">出租金额/月</label>
+            <div class="layui-input-block">
+                <input lay-verify="required|number" type="text" name="defaultRent" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">建筑面积/m²</label>
+            <div class="layui-input-block">
+                <input lay-verify="required|number" type="text" name="area" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">预期物业管理费/月</label>
+            <div class="layui-input-block">
+                <input lay-verify="required|number" type="text" name="propertyCosts" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">建议居住人数/人</label>
+            <div class="layui-input-block">
+                <select name="residents" lay-filter="aihao">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4人及以上</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">是否愿意接受平台认证</label>
+            <div class="layui-input-block">
+                <input type="radio" name="ifCertified" value="0" title="否">
+                <input type="radio" name="ifCertified" value="1" title="是">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">特殊备注</label>
+            <div class="layui-input-block">
+                <textarea lay-verify="required" name="more" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="addHouse">立即添加</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script src="layui.js"></script>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+        form.on('submit(addHouse)', function(data){
+            layui.use('layer',function(){
+                var layer = layui.layer;
+                layer.msg('你确定提交么？', {
+                    time: 2000 ,//2秒自动关闭
+                    btn: ['确定', '取消'],
+                    yes: function(index){
+                        layui.$.ajax({
+                            url:"../addHouse",
+                            data:data.field,
+                            type:"Post",
+                            dataType:"json",
+                            success:function(data){
+                                layer.open({
+                                    title: '萌租房'
+                                    ,content: '提交成功！'
+                                    ,btn: ['确定']
+                                    ,btn1: function(){
+                                        location.reload();
+                                    }
+                                });
+                            },
+                            error:function(data){
+                                layer.open({
+                                    title: '萌租房'
+                                    ,content: '发生错误！'
+                                    ,btn: ['确定']
+                                    ,btn1: function(){
+                                        location.reload();
+                                    }
+                                });
+                            }
+                        });
+                        layer.close(index);
+                    }
+                });
+            });
+            return false;
+        });
+    });
+    </script>
+</div>
+</body>
+</html>

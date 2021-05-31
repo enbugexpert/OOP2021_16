@@ -1,0 +1,1913 @@
+@charset "utf-8";
+/* CSS Document */
+/****************************************全局样式****************************************/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", "微软雅黑", "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+html {
+    font-size: 10px;
+}
+body {
+    overflow-x: hidden;
+    font-size: 2rem;
+}
+img, button {
+    border: 0;
+}
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+::selection {
+    background: #ff7010;
+    color: #fff;
+}
+/****************************************通用样式****************************************/
+.f-l, .y-l, .s-l {
+    float: left;
+}
+.f-r, .y-r, .s-r {
+    float: right;
+}
+/****************************************盒子模型****************************************/
+.m-wrap {
+    width: 100%;
+    min-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.m-box {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.m-t, .y-t, .s-t, .m-c, .y-c, .s-c, .m-f, .y-f, .s-f {
+    width: 100%;
+}
+/****************************************效果集合****************************************/
+@keyframes bounceIn {
+ 0%,  100%,  20%,  40%,  60%,  80% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: scale3d(0.3, 0.3, 0.3);
+}
+ 20% {
+ opacity: 0.3;
+ transform: scale3d(1.1, 1.1, 1.1);
+}
+ 40% {
+ opacity: 0.6;
+ transform: scale3d(0.9, 0.9, 0.9);
+}
+ 60% {
+ opacity: 0.9;
+ transform: scale3d(1.03, 1.03, 1.03);
+}
+ 80% {
+ opacity: 1;
+ transform: scale3d(0.97, 0.97, 0.97);
+}
+ 100% {
+ opacity: 1;
+ transform: scale3d(1, 1, 1);
+}
+}
+@keyframes bounceOut {
+ 0%,  100%,  20%,  40%,  60%,  80% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 1;
+ transform: scale3d(1, 1, 1);
+}
+ 20% {
+ opacity: 1;
+ transform: scale3d(0.97, 0.97, 0.97);
+}
+ 40% {
+ opacity: 0.9;
+ transform: scale3d(1.03, 1.03, 1.03);
+}
+ 60% {
+ opacity: 0.6;
+ transform: scale3d(0.9, 0.9, 0.9);
+}
+ 80% {
+ opacity: 0.3;
+ transform: scale3d(1.1, 1.1, 1.1);
+}
+ 100% {
+ opacity: 0;
+ transform: scale3d(0.3, 0.3, 0.3);
+}
+}
+@keyframes bounceInUp {
+ 0%,  100%,  60%,  75%,  90% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: translate3d(0, 3000px, 0);
+}
+ 60% {
+ opacity: 1;
+ transform: translate3d(0, -20px, 0);
+}
+ 75% {
+ opacity: 1;
+ transform: translate3d(0, 10px, 0);
+}
+ 90% {
+ opacity: 1;
+ transform: translate3d(0, -5px, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: translate3d(0, 0, 0);
+}
+}
+@keyframes bounceInLeft {
+ 0%,  100%,  60%,  75%,  90% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: translate3d(-3000px, 0, 0);
+}
+ 60% {
+ opacity: 1;
+ transform: translate3d(25px, 0, 0);
+}
+ 75% {
+ opacity: 1;
+ transform: translate3d(-10px, 0, 0);
+}
+ 90% {
+ opacity: 1;
+ transform: translate3d(5px, 0, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes bounceInUp {
+ 0%,  100%,  60%,  75%,  90% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: translate3d(0, 3000px, 0);
+}
+ 60% {
+ opacity: 1;
+ transform: translate3d(0, -20px, 0);
+}
+ 75% {
+ transform: translate3d(0, 10px, 0);
+ opacity: 1;
+}
+ 90% {
+ transform: translate3d(0, -5px, 0);
+ opacity: 1;
+}
+ 100% {
+ transform: translate3d(0, 0, 0);
+ opacity: 1;
+}
+}
+@keyframes bounceInRight {
+ 0%,  100%,  60%,  75%,  90% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: translate3d(3000px, 0, 0);
+}
+ 60% {
+ opacity: 1;
+ transform: translate3d(-25px, 0, 0);
+}
+ 75% {
+ opacity: 1;
+ transform: translate3d(10px, 0, 0);
+}
+ 90% {
+ opacity: 1;
+ transform: translate3d(-5px, 0, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes fadeInDown {
+ 0% {
+ opacity: 0;
+ transform: translate3d(0, -100%, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes fadeInUp {
+ 0% {
+ opacity: 0;
+ transform: translate3d(0, 100%, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes rotateScaleIn {
+ 0% {
+ opacity: 0;
+ transform: scale(0) rotate(-360deg);
+}
+ 100% {
+ opacity: 1;
+ transform: scale(1) rotate(0);
+}
+}
+@keyframes fadeIn {
+ 0% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 1;
+}
+}
+@keyframes rotateIn {
+ 0% {
+ transform-origin: center;
+ transform: rotate3d(0, 0, 1, -200deg);
+ opacity: 0;
+}
+ 100% {
+ transform-origin: center;
+ transform: none;
+ opacity: 1;
+}
+}
+@keyframes bounceInDown {
+ 0%,  100%,  60%,  75%,  90% {
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+ 0% {
+ opacity: 0;
+ transform: translate3d(0, -3000px, 0);
+}
+ 60% {
+ opacity: 1;
+ transform: translate3d(0, 25px, 0);
+}
+ 75% {
+ opacity: 1;
+ transform: translate3d(0, -10px, 0);
+}
+ 90% {
+ opacity: 1;
+ transform: translate3d(0, 5px, 0);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes rollIn {
+ 0% {
+ opacity: 0;
+ transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+}
+ 100% {
+ opacity: 1;
+ transform: none;
+}
+}
+@keyframes zoomIn {
+ 0% {
+ opacity: 0;
+ transform: scale3d(0.3, 0.3, 0.3);
+}
+ 100% {
+ opacity: 1;
+}
+}
+@keyframes zoomInUp {
+ 0% {
+ opacity: 0;
+ transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+ animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+ 60% {
+ opacity: 1;
+ transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+ animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+}
+@keyframes slideInRight {
+ from {
+ transform: translate3d(100%, 0, 0);
+ visibility: visible;
+}
+ to {
+ transform: translate3d(0, 0, 0);
+}
+}
+@keyframes zoomInLeft {
+ from {
+ opacity: 0;
+ transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+ animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+ 60% {
+ opacity: 1;
+ transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+ animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+}
+@keyframes zoomInRight {
+ from {
+ opacity: 0;
+ transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+ animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+ 60% {
+ opacity: 1;
+ transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+ animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+}
+@keyframes topLoop {
+ 0% {
+ transform: translateY(100px);
+ opacity: 0;
+}
+ 100% {
+ transform: translateY(0);
+ opacity: 1;
+}
+}
+@keyframes leftLoop {
+ 0% {
+ transform: translateX(-200px);
+ opacity: 0;
+}
+ 100% {
+ transform: translateX(0);
+ opacity: 1;
+}
+}
+@keyframes rightLoop {
+ 0% {
+ transform: translateX(200px);
+ opacity: 0;
+}
+ 100% {
+ transform: translateX(0);
+ opacity: 1;
+}
+}
+@keyframes bottomLoop {
+ 0% {
+ transform: translateY(-200px);
+ opacity: 0;
+}
+ 100% {
+ transform: translateY(0);
+ opacity: 1;
+}
+}
+@keyframes enLarge {
+ 0% {
+ transform: scale(0.3);
+}
+ 50% {
+ transform: scale(1.05);
+}
+ 70% {
+ transform: scale(0.9);
+}
+ 100% {
+ transform: scale(1);
+}
+}
+@keyframes rotateYIn {
+ from {
+ transform: rotateY(90deg);
+ opacity: 0;
+}
+ to {
+ transform: rotateY(0);
+ opacity: 1;
+}
+}
+@keyframes slideDown {
+ from {
+ height: 0;
+}
+ to {
+ height: 100%;
+}
+}
+.bounceIn {
+    animation: bounceIn 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.bounceOut {
+    animation: bounceOut 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.bounceInUp {
+    animation: bounceInUp 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.bounceInLeft {
+    animation: bounceInLeft 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.bounceInRight {
+    animation: bounceInRight 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.bounceInDown {
+    animation: bounceInDown 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.fadeInDown {
+    animation: fadeInDown 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.fadeInUp {
+    animation: fadeInUp 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.rotateScaleIn {
+    animation: rotateScaleIn 1.2s ease;
+    animation-fill-mode: forwards;
+}
+.fadeIn {
+    animation: fadeIn 1.6s ease;
+    animation-fill-mode: forwards;
+}
+.rotateIn {
+    animation: rotateIn 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.rollIn {
+    animation: rollIn 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.zoomIn {
+    animation: zoomIn 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.zoomInUp {
+    animation: zoomInUp 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.slideInRight {
+    animation: slideInRight 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.zoomInLeft {
+    animation: zoomInLeft 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.zoomInRight {
+    animation: zoomInRight 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.topLoop {
+    animation: topLoop 1s ease;
+    animation-fill-mode: forwards;
+}
+.leftLoop {
+    animation: leftLoop 1s ease;
+    animation-fill-mode: forwards;
+}
+.rightLoop {
+    animation: rightLoop 1s ease;
+    animation-fill-mode: forwards;
+}
+.bottomLoop {
+    animation: bottomLoop 1s ease;
+    animation-fill-mode: forwards;
+}
+.enLarge {
+    animation: enLarge 1s ease;
+    animation-fill-mode: forwards;
+}
+.rotateYIn {
+    animation: rotateYIn 1.6s ease;
+    animation-fill-mode: forwards;
+}
+.slideDown {
+    animation: slideDown 1.6s ease;
+    animation-fill-mode: forwards;
+}
+/****************************************头部导航****************************************/
+.g-header {
+    height: 100px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #999;
+}
+.g-header .m-box {
+    height: 100%;
+}
+.g-header .f-l {
+    display: flex;
+    width: 668px;
+    height: 100%;
+    overflow: hidden;
+}
+.g-header .f-l img {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+.g-header .f-r {
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    float: right;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+.g-header .f-r p {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}
+.g-header .f-r h3 {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: url(../images/02.png) 0 center no-repeat;
+    margin-top: 3px;
+    box-sizing: border-box;
+    padding-left: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7010;
+}
+/****************************************菜单导航****************************************/
+.g-nav {
+    height: 70px;
+    overflow: hidden;
+}
+.g-nav ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-nav li {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    font-size: 16px;
+    line-height: 70px;
+    color: #000;
+    text-align: center;
+    transition: all ease-out 0.3s;
+}
+.g-nav li:hover {
+    background: #dc352f;
+    color: #fff;
+}
+.g-nav li a {
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 36px;
+    color: inherit;
+}
+/****************************************幻灯模块****************************************/
+.g-banner {
+    height: auto;
+}
+.focusBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.focusBox .hd {
+    position: absolute;
+    z-index: 1;
+    bottom: 4%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.focusBox .hd ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.focusBox .hd li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    background: #fff;
+    margin: 0 5px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0;
+    opacity: 0.6;
+    transition: all ease-out 0.3s;
+}
+.focusBox .hd li.on {
+    opacity: 1;
+}
+.focusBox .s-form {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.focusBox .s-form .s-main {
+    width: 280px;
+    height: 350px;
+    overflow: hidden;
+    margin-top: 70px;
+    float: right;
+    background: rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 65px 20px 0;
+}
+.focusBox .s-form .s-main p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+.focusBox .s-form .s-main p label {
+    display: inline-block;
+    width: 50px;
+    height: auto;
+    overflow: hidden;
+    font-size: 14px;
+    color: #ccc;
+    text-align: right;
+    vertical-align: middle;
+}
+.focusBox .s-form .s-main p input {
+    display: inline-block;
+    width: 185px;
+    height: 30px;
+    overflow: hidden;
+    background: #fff;
+    float: right;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    line-height: 30px;
+    color: #666;
+    vertical-align: middle;
+}
+.focusBox .s-form .s-main p a {
+    display: block;
+    width: 185px;
+    height: 30px;
+    overflow: hidden;
+    float: right;
+    background: #ff7010;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #eee;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all ease-out 0.3s;
+}
+.focusBox .s-form .s-main p a:hover {
+    background: #ee5f00;
+}
+.focusBox .s-form .s-main p em {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: 30px;
+    font-size: 14px;
+    font-style: normal;
+    color: #ccc;
+    text-align: right;
+}
+.focusBox .bd {
+    width: 100%;
+}
+.focusBox .bd img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/****************************************共用部分****************************************/
+.u-title {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.u-title h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 30px;
+    font-weight: normal;
+    color: #040404;
+    text-align: center;
+}
+.u-title span {
+    display: block;
+    width: 364px;
+    height: 12px;
+    overflow: hidden;
+    background: url(../images/04.png) 0 0 no-repeat;
+    margin: 6px auto 0;
+}
+.u-title p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/****************************************专注高补高效提分****************************************/
+.g-focus {
+    height: 786px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 65px;
+}
+.g-focus .m-t {
+    height: 110px;
+    overflow: hidden;
+}
+.g-focus .m-c {
+    position: relative;
+    height: 570px;
+}
+.g-focus .m-c .s-list {
+    width: 1040px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.g-focus .m-c .s-list li {
+    width: 200px;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 180px;
+    float: left;
+}
+.g-focus .m-c .s-list li:nth-child(2n+1) {
+    margin-right: 320px;
+}
+.g-focus .m-c .s-list li:nth-child(2n) {
+    margin-left: 320px;
+}
+.g-focus .m-c .s-list li:hover .txt p {
+    color: #ff7010;
+}
+.g-focus .m-c .s-list li .img {
+    display: flex;
+    width: 148px;
+    height: 131px;
+    overflow: hidden;
+    background: url(../images/23.png) 0 0 no-repeat;
+    margin: 0 auto;
+}
+.g-focus .m-c .s-list li .img img {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+.g-focus .m-c .s-list li .txt {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.g-focus .m-c .s-list li .txt p {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 30px;
+    color: #8b8b8b;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: all ease-out 0.3s;
+}
+.g-focus .m-c .s-center {
+    position: absolute;
+    z-index: 1;
+    top: 105px;
+    width: 100%;
+    height: auto;
+    height: 320px;
+    overflow: hidden;
+    visibility: hidden;
+}
+.g-focus .m-c .s-center .s-main {
+    width: 320px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    background: #ff7010;
+    box-sizing: border-box;
+    border-radius: 50%;
+    padding: 5px;
+    visibility: visible;
+}
+.g-focus .m-c .s-center img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    transition: all ease-out 0.3s;
+}
+.g-focus .m-c .s-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 80px;
+    width: 1040px;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.g-focus .m-c .s-bg .s-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.g-focus .m-c .s-bg .s-main img {
+    position: absolute;
+    z-index: 1;
+    width: 111px;
+    height: 67px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+}
+.g-focus .m-c .s-bg .s-main .bg1 {
+    top: 105px;
+    left: 220px;
+}
+.g-focus .m-c .s-bg .s-main .bg2 {
+    top: 105px;
+    right: 220px;
+}
+.g-focus .m-c .s-bg .s-main .bg3 {
+    bottom: 160px;
+    left: 220px;
+}
+.g-focus .m-c .s-bg .s-main .bg4 {
+    bottom: 160px;
+    right: 220px;
+}
+.g-focus .m-f {
+    position: relative;
+    z-index: 2;
+    height: auto;
+    overflow: hidden;
+    margin-top: -45px;
+    visibility: hidden;
+}
+.g-focus .m-f a {
+    display: block;
+    width: 264px;
+    height: 46px;
+    overflow: hidden;
+    background: #ff7010;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 46px;
+    color: #fff;
+    text-align: center;
+    visibility: visible;
+    transition: all ease-out 0.3s;
+}
+.g-focus .m-f a:hover {
+    background: #ee5f00;
+}
+/****************************************我们的精英老师****************************************/
+.g-teacher {
+    height: 850px;
+    overflow: hidden;
+    background: #f7f7f7;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+.g-teacher .m-t {
+    height: 130px;
+    overflow: hidden;
+}
+.g-teacher .m-c {
+    height: 570px;
+}
+.g-teacher .m-c .y-t {
+    height: 130px;
+    overflow: hidden;
+}
+.g-teacher .m-c .y-t ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 90px;
+}
+.g-teacher .m-c .y-t ul li {
+    width: 340px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    letter-spacing: 2px;
+}
+.g-teacher .m-c .y-t ul li h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff7010;
+    text-align: center;
+}
+.g-teacher .m-c .y-t ul li p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: bold;
+    color: #999;
+    text-align: center;
+}
+.g-teacher .m-c .y-c {
+    height: auto;
+}
+.g-teacher .m-c .y-c .bd ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-teacher .m-c .y-c .bd ul li {
+    width: 280px;
+    height: 360px;
+    overflow: hidden;
+    background: #fff;
+    float: left;
+    margin: 0 13px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+.g-teacher .m-c .y-c .bd ul li:first-child {
+    margin-left: 0;
+}
+.g-teacher .m-c .y-c .bd ul li:last-child {
+    margin-right: 0;
+}
+.g-teacher .m-c .y-c .bd ul li:hover img {
+    transform: scale(1.1);
+}
+.g-teacher .m-c .y-c .bd ul li:hover .txt h3 {
+    color: #ff7010;
+}
+.g-teacher .m-c .y-c .bd ul li .img {
+    display: block;
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+}
+.g-teacher .m-c .y-c .bd ul li .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    transition: all ease-out 0.3s;
+}
+.g-teacher .m-c .y-c .bd ul li .txt {
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+.g-teacher .m-c .y-c .bd ul li .txt h3 {
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all ease-out 0.3s;
+}
+.g-teacher .m-c .y-c .bd ul li .txt h3 a {
+    color: inherit;
+}
+.g-teacher .m-c .y-c .bd ul li .txt p {
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.g-teacher .m-c .y-c .bd ul li .txt p span {
+    font-size: 18px;
+    color: #ff7010;
+}
+.g-teacher .m-f {
+    height: auto;
+}
+.g-teacher .m-f a {
+    display: block;
+    width: 290px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-right: 30px;
+    border: 2px solid #ff7010;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 46px;
+    color: #ff7010;
+    text-align: center;
+    transition: all ease-out 0.3s;
+}
+.g-teacher .m-f a:hover {
+    transform: translateY(-5px);
+}
+.g-teacher .m-f a:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 24px;
+    height: 46px;
+    overflow: hidden;
+    margin-left: 10px;
+    background: url(../images/14.png) no-repeat 0 center;
+    background-size: 100% auto;
+}
+.multipleColumn {
+    width: 100%;
+    position: relative;
+}
+.multipleColumn .hd {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    z-index: 9;
+}
+.multipleColumn1 .hd {
+    top: 380px;
+}
+.multipleColumn2 .hd {
+    top: 490px;
+}
+.multipleColumn .hd ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.multipleColumn .hd ul li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+    font-size: 0;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid #ff7010;
+}
+.multipleColumn .hd ul li.on {
+    background: #ff7010;
+}
+.multipleColumn .bd {
+    overflow: hidden;
+}
+/****************************************明星学员****************************************/
+.g-student {
+    height: 830px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 75px;
+}
+.g-student .m-t {
+    height: 100px;
+    overflow: hidden;
+}
+.g-student .m-c {
+    height: 560px;
+    overflow: hidden;
+}
+.g-student .m-c .bd ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-student .m-c .bd ul li {
+    width: 350px;
+    height: 480px;
+    overflow: hidden;
+    background: #eaeaea;
+    float: left;
+    margin: 0 37px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px 40px 0;
+    transition: all ease-out 0.3s;
+}
+.g-student .m-c .bd ul li:hover {
+    background: #ff7010;
+}
+.g-student .m-c .bd ul li:hover img {
+    transform: scale(1.1);
+}
+.g-student .m-c .bd ul li:hover .txt h3, .g-student .m-c .bd ul li:hover .txt p {
+    color: #fff;
+}
+.g-student .m-c .bd ul li:first-child {
+    margin-left: 0;
+}
+.g-student .m-c .bd ul li:last-child {
+    margin-right: 0;
+}
+.g-student .m-c .bd ul li .img {
+    display: block;
+    width: 224px;
+    height: 224px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: #ff7010;
+    box-sizing: border-box;
+    border-radius: 50%;
+    padding: 4px;
+}
+.g-student .m-c .bd ul li .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    transition: all ease-out 0.3s;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.g-student .m-c .bd ul li .txt {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 24px;
+}
+.g-student .m-c .bd ul li .txt h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+}
+.g-student .m-c .bd ul li .txt p {
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #666;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.g-student .m-c .bd ul li .txt a {
+    color: inherit;
+}
+.g-student .m-f {
+    height: auto;
+}
+.g-student .m-f a {
+    display: block;
+    width: 290px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-right: 30px;
+    border: 2px solid #ff7010;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 46px;
+    color: #ff7010;
+    text-align: center;
+    transition: all ease-out 0.3s;
+}
+.g-student .m-f a:hover {
+    transform: translateY(-5px);
+}
+.g-student .m-f a:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 24px;
+    height: 46px;
+    overflow: hidden;
+    margin-left: 10px;
+    background: url(../images/14.png) no-repeat 0 center;
+    background-size: 100% auto;
+}
+/****************************************班级定制机“有讲究”****************************************/
+.g-class {
+    height: 630px;
+    overflow: hidden;
+    background: #f7f7f7;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+.g-class .m-t {
+    height: 70px;
+    overflow: hidden;
+}
+.g-class .m-c {
+    height: auto;
+}
+.g-class .m-c ul {
+    width: 100%;
+    height: auto;
+}
+.g-class .m-c li {
+    width: 224px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin: 0 38px;
+}
+.g-class .m-c li:nth-child(1) .y-t {
+    transform: translateY(100px);
+}
+.g-class .m-c li:nth-child(1) .y-c {
+    background-image: url(../images/15.png);
+}
+.g-class .m-c li:nth-child(2) .y-t {
+    transform: translateY(70px);
+}
+.g-class .m-c li:nth-child(2) .y-c {
+    background-image: url(../images/16.png);
+}
+.g-class .m-c li:nth-child(3) .y-t {
+    transform: translateY(40px);
+}
+.g-class .m-c li:nth-child(3) .y-c {
+    background-image: url(../images/17.png);
+}
+.g-class .m-c li:nth-child(4) .y-c {
+    background-image: url(../images/18.png);
+}
+.g-class .m-c li .y-t {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-class .m-c li .y-t h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: normal;
+    color: #ff7010;
+    text-align: right;
+}
+.g-class .m-c li .y-c {
+    width: 100%;
+    height: 358px;
+    overflow: hidden;
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    background-size: 100% auto;
+    box-sizing: border-box;
+    padding: 155px 40px;
+}
+.g-class .m-c li .y-c p {
+    position: relative;
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+}
+.g-class .m-c li .y-c p:before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    background: #fff;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+/****************************************名师出高徒****************************************/
+.g-high {
+    position: relative;
+    height: 870px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 70px;
+}
+.g-high .s-bg {
+    position: absolute;
+    z-index: -1;
+    top: 170px;
+    left: 0;
+    width: 100%;
+    height: 640px;
+    overflow: hidden;
+    background: url(../images/28.png) center 0 no-repeat;
+    background-size: auto 100%;
+}
+.g-high .m-t {
+    height: 100px;
+    overflow: hidden;
+}
+.g-high .m-t h3 em {
+    font-style: normal;
+    color: #ff7010;
+}
+.g-high .m-c {
+    position: relative;
+    height: 640px;
+    overflow: hidden;
+}
+.g-high .m-c .s-score, .g-high .m-c .s-percent {
+    position: absolute;
+    z-index: 1;
+}
+.g-high .m-c .s-score {
+    top: 124px;
+    left: 60px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 52px;
+    font-weight: bold;
+    color: #ff7010;
+    letter-spacing: 4px;
+}
+.g-high .m-c .s-percent {
+    top: 418px;
+    left: 997px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 52px;
+    font-weight: bold;
+    color: #ff7010;
+    letter-spacing: 4px;
+}
+.g-high .m-c .s-main {
+    width: 630px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+.g-high .m-c .s-main h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: normal;
+    color: #ff7010;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.g-high .m-c .s-main .s-m {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 13px;
+}
+.g-high .m-c .s-main .s-m .s-con {
+    width: 100%;
+    height: 456px;
+    overflow: hidden;
+}
+.g-high .m-c .s-main .s-m ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid #666;
+    font-size: 24px;
+    color: #666;
+}
+.g-high .m-c .s-main .s-m ul.th {
+    color: #ff7010;
+}
+.g-high .m-c .s-main .s-m ul li {
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+    font-size: 20px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.g-high .m-c .s-main .s-m ul li:nth-child(1) {
+    width: 120px;
+}
+.g-high .m-c .s-main .s-m ul li:nth-child(2) {
+    width: 370px;
+}
+.g-high .m-c .s-main .s-m ul li:nth-child(3) {
+    width: 140px;
+}
+/****************************************关于我们****************************************/
+.g-about {
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+.g-about .m-t {
+    height: 130px;
+    overflow: hidden;
+}
+.g-about .m-t h3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 30px;
+    color: #040404;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.g-about .m-t span {
+    display: block;
+    width: 80px;
+    height: 4px;
+    overflow: hidden;
+    background: #dc352f;
+    margin: 12px auto;
+}
+.g-about .m-t p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.g-about .m-c {
+    height: 520px;
+    background: #fafafa;
+}
+.g-about .m-c .f-l {
+    width: 675px;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 110px 35px 0;
+}
+.g-about .m-c .f-l p {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 30px;
+    color: #666;
+    text-align: justify;
+    text-indent: 2em;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    transition: all ease-out 0.3s;
+}
+.g-about .m-c .f-l p:hover {
+    color: #ff7010;
+}
+.g-about .m-c .f-l p a {
+    color: inherit;
+}
+.g-about .m-c .f-r {
+    width: 525px;
+    height: 100%;
+}
+.g-about .m-c .f-r:hover img {
+    opacity: 0.8;
+}
+.g-about .m-c .f-r img {
+    display: block;
+    width: auto;
+    height: 100%;
+    transition: all ease-out 0.3s;
+}
+/****************************************为何众多学员选择欢乐教育****************************************/
+.g-ad {
+    height: auto;
+    overflow: hidden;
+}
+.g-ad img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/****************************************舒适的学习环境****************************************/
+.g-environment {
+    height: 720px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+.g-environment .m-t {
+    height: 110px;
+    overflow: hidden;
+}
+.g-environment .m-c {
+    height: 480px;
+    overflow: hidden;
+}
+.g-environment .m-c ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-environment .m-c li {
+    width: 295px;
+    height: 210px;
+    overflow: hidden;
+    float: left;
+    margin-left: 6px;
+    margin-bottom: 6px;
+}
+.g-environment .m-c li:nth-child(4n+1) {
+    margin-left: 0;
+}
+.g-environment .m-c li:hover img {
+    transform: scale(1.1);
+}
+.g-environment .m-c li img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    transition: all ease-out 0.3s;
+}
+.g-environment .m-f {
+    height: auto;
+}
+.g-environment .m-f a {
+    display: block;
+    width: 290px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-right: 30px;
+    border: 2px solid #ff7010;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 46px;
+    color: #ff7010;
+    text-align: center;
+    transition: all ease-out 0.3s;
+}
+.g-environment .m-f a:hover {
+    transform: translateY(-5px);
+}
+.g-environment .m-f a:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 24px;
+    height: 46px;
+    overflow: hidden;
+    margin-left: 10px;
+    background: url(../images/14.png) no-repeat 0 center;
+    background-size: 100% auto;
+}
+/****************************************师大咨询****************************************/
+.g-consult {
+    height: 500px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.g-consult .m-t {
+    height: 110px;
+    overflow: hidden;
+}
+.g-consult .m-c {
+    height: auto;
+    overflow: hidden;
+}
+.g-consult .m-c ul {
+    width: 1125px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.g-consult .m-c ul li {
+    width: 290px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin: 0 42.5px;
+}
+.g-consult .m-c ul li:nth-child(2n+1) {
+    margin-top: 20px;
+}
+.g-consult .m-c ul li:hover img {
+    transform: scale(1.1);
+}
+.g-consult .m-c ul li .img {
+    width: 100%;
+    height: 172px;
+    overflow: hidden;
+    -webkit-mask: url(../images/25.png) 0 0 no-repeat;
+    -webkit-mask-size: 100% 100%;
+    box-sizing: border-box;
+    border: 1px solid #ff7010;
+}
+.g-consult .m-c ul li .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    transition: all ease-out 0.3s;
+}
+.g-consult .m-c ul li .txt {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 12px;
+}
+.g-consult .m-c ul li .txt h3 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #ff7010;
+    letter-spacing: 1px;
+}
+.g-consult .m-c ul li .txt h3:after {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 17px;
+    overflow: hidden;
+    background: url(../images/26.png) 0 0 no-repeat;
+    margin-left: 6px;
+    vertical-align: super;
+}
+.g-consult .m-c ul li .txt p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+}
+/****************************************底部导航****************************************/
+.g-footer {
+    height: 180px;
+    overflow: hidden;
+    background: #404040;
+}
+.g-footer .f-l {
+    width: 900px;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 35px;
+}
+.g-footer .f-l .y-t {
+    height: auto;
+    overflow: hidden;
+}
+.g-footer .f-l .y-t ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-footer .f-l .y-t li {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-right: 40px;
+    font-size: 16px;
+    color: #fff;
+}
+.g-footer .f-l .y-t li:hover {
+    text-decoration: underline;
+}
+.g-footer .f-l .y-t li a {
+    color: inherit;
+}
+.g-footer .f-l .y-c {
+    height: auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+.g-footer .f-l .y-c p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.g-footer .f-l .y-c p span {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.g-footer .f-r {
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+.g-footer .f-r ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.g-footer .f-r li {
+    width: 120px;
+    height: auto;
+    overflow: hidden;
+}
+.g-footer .f-r li:first-child {
+    float: left;
+}
+.g-footer .f-r li:last-child {
+    float: right;
+}
+.g-footer .f-r li img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.g-footer .f-r li p {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/****************************************好课程听听看****************************************/
+.g-apply {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    height: 90px;
+    overflow: hidden;
+    background: url(../images/27.png) center 0 no-repeat;
+    background-size: auto 100%;
+    box-sizing: border-box;
+    padding-top: 25px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all ease-out 0.8s;
+}
+.g-apply.on {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.g-apply .m-box {
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 355px;
+}
+.g-apply input, .g-apply .submit {
+    display: inline-block;
+    width: 160px;
+    height: 42px;
+    overflow: hidden;
+    background: #fff;
+    margin-right: 30px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+    font-size: 18px;
+    font-family: SimSun;
+    line-height: 40px;
+    color: #333;
+    vertical-align: middle;
+}
+.g-apply .submit {
+    background: #ff7010;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: all ease-out 0.3s;
+}
+.g-apply .submit:hover {
+    background: #ee5f00;
+}
+.g-apply .s-close {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 20%;
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 24px;
+    color: #fff;
+}
+/****************************************init****************************************/
+.g-focus .m-t, .g-focus .m-c, .g-focus .m-f, .g-teacher .m-t, .g-teacher .m-c .y-t, .g-teacher .m-c .y-c, .g-teacher .m-f, .g-student .m-t, .g-student .m-c, .g-student .m-f, .g-class .m-t, .g-class .m-c li, .g-high .m-t, .g-high .m-c, .g-high .s-bg, .g-about .m-t, .g-about .m-c .f-l, .g-about .m-c .f-r, .g-ad, .g-environment .m-t, .g-environment .m-c li, .g-environment .m-f, .g-consult .m-t, .g-consult .m-c ul li {
+    opacity: 0;
+}

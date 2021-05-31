@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* CSS Document */
+/****************************************全局样式****************************************/
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+html {
+	font-size: 10px;
+}
+body {
+	overflow-x: hidden;
+	font-size: 2rem;
+}
+img, button {
+	border: 0;
+}
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+textarea {
+	resize: none;
+	overflow: hidden;
+}
+::selection {
+	background: #315cc5;
+	color: #fff;
+}
+/****************************************通用样式****************************************/
+.f-l {
+	float: left;
+	display: inline;
+}
+.f-r {
+	float: right;
+	display: inline;
+}
+/****************************************盒子模型****************************************/
+.m-wrap {
+	width: 100%;
+	min-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.m-box {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.m-t {
+	width: 100%;
+}
+.m-b {
+	width: 100%;
+}
+.m-f {
+	width: 100%;
+}
+/****************************************效果集合****************************************/
+ @keyframes fadeIn {
+ 0% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @keyframes topLoop {
+ 0% {
+ transform: translateY(100px);
+ opacity: 0;
+}
+ 100% {
+ transform: translateY(0);
+ opacity: 1
+}
+}
+.fadeIn {
+	animation: fadeIn 1.5s ease-out;
+	animation-fill-mode: forwards;
+}
+.topLoop {
+	animation: topLoop 1s ease-out;
+	animation-fill-mode: forwards;
+}
+/****************************************引导页****************************************/
+@keyframes bgScale {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.25);
+	}
+}
+.container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.container .relative {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.container .relative .bg {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: url(../images/01.jpg) center center / 100% 100% no-repeat;
+	animation: bgScale 10s ease-out 0s infinite alternate;
+}
+.container .relative .main {
+	width: 18.25em;
+	height: auto;
+	overflow: hidden;
+	margin: auto;
+}
+.container .relative .main img {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.container .relative .logo {
+	width: 13.45em;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+	opacity: 0;
+	animation-delay: 0.3s;
+}
+.container .relative .row1 {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 2.4em auto 0;
+	opacity: 0;
+	animation-delay: 0.6s;
+}
+.container .relative .row2 {
+	width: 18.1em;
+	height: auto;
+	overflow: hidden;
+	margin: 0.6em auto 0;
+	opacity: 0;
+	animation-delay: 0.9s;
+}
+.container .relative a {
+	display: block;
+	width: 100px;
+	height: 70px;
+	overflow: hidden;
+	background: url(../images/05.png) 0 center no-repeat;
+	margin: 1.6em auto 0;
+	font-size: 18px;
+	font-family: SimSun;
+	font-weight: 600;
+	line-height: 70px;
+	text-align: right;
+	color: #d01146;
+	opacity: 0;
+	animation-delay: 1.5s;
+	transition: all ease-out 0.3s;
+}
+.container .relative a:hover {
+	transform: scale(1.1);
+	text-decoration: underline;
+}
+.container .relative .wec {
+	position: absolute;
+	z-index: 1;
+	top: 4%;
+	right: 2.5%;
+	width: 122px;
+	height: auto;
+}
+.container .relative i {
+	display: block;
+	width: 24px;
+	height: 20px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../images/06.png) center center / 100% 100% no-repeat;
+	transition: all ease-out 0.3s;
+	cursor: pointer;
+}
+.container .relative .wec:hover i {
+	background-image: url(../images/07.png);
+}
+.container .relative span {
+	display: none;
+	width: 122px;
+	height: 128px;
+	overflow: hidden;
+	background: url(../images/08.png) center center / 100% 100% no-repeat;
+	box-sizing: border-box;
+	padding: 10px 5px 0 5px;
+	transition: all ease-out 0.3s;
+}
+.container .relative .wec span.on {
+	animation: wec 0.5s ease;
+	animation-fill-mode: forwards;
+}
+.container .relative img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.container .relative .wec:hover span {
+	display: block;
+}
+@keyframes wec {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(10px);
+		opacity: 1;
+	}
+}

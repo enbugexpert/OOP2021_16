@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<script type="text/javascript" src="../layui/layui.js"></script>
+</head>
+
+
+
+
+<body class="layui-layout-body">
+<div class="layui-anim layui-anim-upbit">
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		<legend>我的房产</legend>
+	</fieldset>
+
+
+	<div>
+		<div class="layui-inline">
+			<input type="text" name="title" required lay-verify="required" placeholder="请输入房产关键词" autocomplete="off" class="layui-input" style="width:160px;" >
+		</div>
+		<div class="layui-inline">
+			<button type="button" class="layui-btn"  id="findByAddress">查找房产</button>
+		</div>
+
+	</div>
+
+
+
+
+		<table class="layui-hide" id="test" lay-filter="test"></table>
+
+	<!-- 编辑栏 -->
+	<script type="text/html" id="barDemo">
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+	</script>
+
+
+		<script>
+			//封装了tableInit的对象/函数，根据不同的url来实现表格的渲染
+			var tableInit = function(url){//url代表的是渲染表格的请求路径
+				layui.use('table', function(){
+					var $ = layui.$;
+
+					var table = layui.table;
+
+					table.render({
+						elem: '#test'
+						,url: url
+						,method: 'POST'
+						,parseData: function(res){ //res 即为原始返回的数据
+							return {
+								"code": 0, //解析接口状态
+								"msg": "OK", //解析提示文本
+								"count": 100, //解析数据长度
+								"data": res //解析数据列表
+							};
+						}
+						,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+						,cols: [[
+							 {field:'id', width:75, title: '序号', sort: true}
+							,{field:'address', width:100, title: '地址'}
+							,{field:'floor', width:70, title: '楼层'}
+							,{field:'defaultRent', width:140, title: '预期出租金额/月'}
+							,{field:'area', width:100, title: '建筑面积'}
+							,{field:'propertyCosts', width:150, title: '预期物业管理费/月'}
+							,{field:'residents', width:140, title: '建议居住人数/人'}
+							,{field:'ifCertified', width:170, title: '是否愿意接受平台认证'}
+							,{field:'registerDate', width:110, title: '添加日期'}
+							,{field:'more', width:90, title: '特殊备注'}
+							,{fixed: 'right', width:70, align:'center', toolbar: '#barDemo'}
+						]]
+					});
+					//监听工具条
+					table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+						var data = obj.data; //获得当前行数据
+						var id = data.id;
+						var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+						var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+						if(layEvent === 'delete'){ //查看
+							layui.use('layer',function(){
+								var layer = layui.layer;
+								layer.msg('你确定删除该房产么？', {
+									time: 2000 ,//2秒自动关闭
+									btn: ['确定', '取消'],
+									yes: function(index){
+										layui.$.ajax({
+											url:"../delHouse",
+											data: {id: id},
+											type:"Post",
+											dataType:"json",
+											success:function(data){
+												layer.open({
+													title: '萌租房'
+													,content: '删除成功！'
+													,btn: ['确定']
+													,btn1: function(){
+														location.reload();
+													}
+												});
+											},
+											error:function(data){
+												layer.open({
+													title: '萌租房'
+													,content: '发生错误！'
+													,btn: ['确定']
+													,btn1: function(){
+														location.reload();
+													}
+												});
+											}
+										});
+										layer.close(index);
+									}
+								});
+							});
+						}
+					});
+				});
+			};
+			tableInit("../house" +　window.location.search);
+
+			//根据id查询，重新渲染表格，事件和tableInit()绑定
+			layui.use('layer', function(){
+				var $ = layui.$ //由于layer弹层依赖jQuery，所以可以直接得到
+						,layer = layui.layer;
+
+				//jQuery
+				$("#findByAddress").on('click',function(){
+					var input = $(this).parent().parent().find(".layui-input").val();
+					tableInit("../house?keyword=" + input);
+				})
+			});
+		</script>
+</div>
+</body>
+</html>
+

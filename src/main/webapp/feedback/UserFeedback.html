@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>用户反馈</title>
+    <style type="text/css">
+        .Content-Main{
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 100px 60px 100px;
+            font: 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: 3px 3px 3px #808080;
+            border: 3px solid #0f4c75;
+            border-radius: 15px;
+            color: #888;
+            background-image: url("bkg01.jpg");
+        }
+        .Content-Main h1{
+            display: block;
+            padding: 0px 0px 10px 40px;
+            margin: -10px -30px 30px -30px;
+            font: 30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            border-bottom: 1px solid #0f4c75;
+            color: #394989;
+        }
+        .Content-Main h1>span{
+            display: block;
+            font-size: 11px;
+        }
+        .Content-Main label{
+            display: block;
+            margin: 0px 0px 5px;
+        }
+        .Content-Main label>span{
+            float: left;
+            width: 20%;
+            padding-right: 20px;
+            margin-top: 10px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-align: right;
+            color: #394989;
+        }
+        .Content-Main input[type="text"],.Content-Main textarea{
+            width: 70%;
+            height: 20px;
+            padding: 5px 0px 5px 5px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            line-height: 15px;
+            border-radius: 4px;
+            border: 1.5px solid #0f4c75;
+            color: #333;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .sex{
+            width: 71%;
+            height: 40px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            line-height: 15px;
+            padding: 5px 0px 5px 5px;
+            border-radius: 4px;
+            border: 1.5px solid #0f4c75;
+            color: #333;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .addressType{
+            width: 13%;
+            margin-top: 5px;
+            padding: 5px 0px 5px 5px;
+            border-radius: 4px;
+            border: 1.5px solid #0f4c75;
+            color: #333;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .Content-Main textarea{
+            width: 70%;
+            height: 100px;
+            padding: 5px 0px 0px 5px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .submit{
+            padding: 10px 25px 10px 25px;
+            margin-left: 50%;
+            border-radius: 4px;
+            border:1.5px solid #0f4c75;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+        .submit:hover{
+            color: #333;
+            background-color: #EBEBEB;
+            border-color: #ADADAD;
+        }
+    </style>
+    <script type="text/javascript" src="../layui/layui.js"></script>
+</head>
+<body>
+<div class="Content-Main">
+    <div class="Content-Main1">
+        <h1>用户反馈</h1>
+    </div>
+    <form id="feedback" action="../feedback" method="post" class="form-report">
+        <label>
+            <span>地址:</span>
+            <select name="addressType" class="addressType">
+                <option value="Email">邮箱</option>
+                <option value="Phone number">电话号码</option>
+                <option value="QQ">QQ</option>
+                <option value="User name">昵称</option>
+            </select>
+            <input type="text" placeholder="" name="address">
+        </label>
+        <p></p>
+        <label>
+            <span>性别:</span>
+            <select name="sex" class="sex">
+                <option value="Male">男</option>
+                <option value="Female">女</option>
+            </select>
+        </label>
+        <p></p>
+        <label>
+            <span>内容:</span>
+            <textarea id="content" name="content" placeholder="请输入内容"></textarea>
+        </label>
+        <p></p>
+        <label>
+            <span>请放心，我们不会收集你的用户信息</span>
+        </label>
+        <p></p>
+        <p></p>
+        <label>
+            <input type="submit" class="submit" value="发送">
+        </label>
+    </form>
+</div>
+</body>
+</html>
